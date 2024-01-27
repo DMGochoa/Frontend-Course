@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div p {
+            color: red;
+        }
+        div > div {
+            background: burlywood;
+        }
+        div + section {
+            background: blue;
+        }
+        div ~ p {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Este es un parrafo</p>
+        <p>Este es otro parrafo</p>
+        <p>Este es otro parrafo</p>
+        <div>
+            <p>Hola Mundo</p>
+        </div>
+    </div>
+    <p>Este es un parrafo</p>
+    <div>
+        Otra cosa mas
+    </div>
+    <section>
+        <p>Este es un parrafo</p>
+        <p>Este es otro parrafo</p>
+        <p>Este es otro parrafo</p>
+    </section>
+</body>
+</html>

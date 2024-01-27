@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            color: salmon
+        }
+        p::first-letter {
+            color: blue
+        }
+        p::before{
+            content: "<3"
+        }
+        p:hover {
+            color: green
+        }
+        div p:nth-child(2) {
+            color: violet
+        }
+        ::placeholder {
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Este es un parrafo</p>
+        <p>Este es otro parrafo</p>
+        <p>Este es otro parrafo</p>
+        <div>
+            <p>Hola Mundo</p>
+        </div>
+    </div>
+    <input type="text" placeholder="name">
+</body>
+</html>
