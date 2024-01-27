@@ -1,3 +1,118 @@
 body {
-    background-color: blue;
+    padding-top: 56px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    padding-top: 1.25rem;
+    padding-bottom: 7px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    top: 0;
+    background-color: #4062a5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0;
+}
+
+.navbar-container ul li {
+    list-style: none;
+}
+
+.app-name {
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    margin-right: auto;
+}
+
+.navbar-container ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+
+/* Estilo por defecto del enlace sin el hover */
+.navbar-container ul li a.nav-items {
+    position: relative; /* Necesario para posicionar el pseudo-elemento respecto a este enlace */
+    text-decoration: none; /* Remueve el subrayado por defecto */
+    color: white; /* Color del texto */
+    font-size: medium; /* Tamaño del texto */
+    transition: color 0.3s; /* Transición suave para el color */
+}
+
+/* Estilo del pseudo-elemento que servirá como la línea de resaltado */
+.navbar-container ul li a.nav-items::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; /* Altura de la línea de resaltado */
+    background-color: white; /* Color de la línea */
+    bottom: -5px; /* Distancia de la línea al texto */
+    left: 0;
+    transition: width 0.3s; /* Transición suave para la aparición de la línea */
+}
+
+/* Estilo cuando se hace hover sobre el enlace */
+.navbar-container ul li a.nav-items:hover {
+    color: rgb(204, 195, 195); /* Opcional: Cambia el color del texto */
+}
+
+.navbar-container ul li a.nav-items:hover::after {
+    width: 100%; /* La línea se extiende a todo el ancho del enlace */
+}
+
+/* Opcional: Estilo para cuando se hace focus sobre el enlace (para accesibilidad) */
+.navbar-container ul li a.nav-items:focus::after {
+    width: 100%; /* La línea se extiende a todo el ancho del enlace */
+}
+
+.button-login {
+    text-decoration: none;
+    background-color: #f7b560;
+    color: black;
+    border-radius: 24px;
+    padding: 2px 12px;
+    font-size: medium;
+    font-weight: 600;
+    margin-right: 12px;
+}
+
+.cart-container{
+    display: flex;
+    align-items: center;
+}
+
+#cart-icon {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+#cart-total {
+    text-decoration: none;
+    font-size: medium;
+    background-color: #f56565;
+    color: #ffffff;
+    border-radius: 9999px;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.875rem;
+    position: relative;
+    top: -8px;
+    left: -12px;
+    font-weight: 600;
 }
