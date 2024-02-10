@@ -2,6 +2,25 @@
 {% load static %}
 {% block content %}
 
-<h3>checkout</h3>
+<div class="grid-container">
+    <div class="box-element product">
+        <img class="thumbnail" src="{% static 'images/placeholder.png' %}" alt="product">
+        <h6 class="product-name"><strong>Producto 1</strong></h6>
+        <hr>
+        <button class="button-add">Add to Cart</button>
+    </div>
+    <div class="box-element product">
+        <img class="thumbnail" src="{% static 'images/placeholder.png' %}" alt="product">
+        <h6 class="product-name"><strong>Producto 2</strong></h6>
+        <hr>
+        <button class="button-add">Add to Cart</button>
+    </div>
+    <div class="box-element product">
+        <img class="thumbnail" src="{% static 'images/placeholder.png' %}" alt="product">
+        <h6 class="product-name"><strong>Producto 3</strong></h6>
+        <hr>
+        <button class="button-add">Add to Cart</button>
+    </div>
+</div>
 
 {% endblock content %}
