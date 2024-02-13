@@ -2,6 +2,75 @@
 {% load static %}
 {% block content %}
 
-<h3>checkout</h3>
+<div class="custom-row">
+    <div class="custom-col-half">
+        <div class="box-element" id="form-wrapper">
+            <form id="form">
+                <div id="user-info">
+                    <div class="form-field">
+                        <input required class="custom-input" type="text" name="name" placeholder="Name..">
+                    </div>
+                    <div class="form-field">
+                        <input required class="custom-input" type="email" name="email" placeholder="Email..">
+                    </div>
+                </div>
+                
+                <div id="shipping-info">
+                    <hr>
+                    <p>Shipping Information:</p>
+                    <hr>
+                    <div class="form-field">
+                        <input class="custom-input" type="text" name="address" placeholder="Address..">
+                    </div>
+                    <div class="form-field">
+                        <input class="custom-input" type="text" name="city" placeholder="City..">
+                    </div>
+                    <div class="form-field">
+                        <input class="custom-input" type="text" name="state" placeholder="State..">
+                    </div>
+                    <div class="form-field">
+                        <input class="custom-input" type="text" name="zipcode" placeholder="Zip code..">
+                    </div>
+                    <div class="form-field">
+                        <input class="custom-input" type="text" name="country" placeholder="Country..">
+                    </div>
+                </div>
+
+                <hr>
+                <input id="form-button" class="custom-button success" type="submit" value="Continue">
+            </form>
+        </div>
+
+        <div class="box-element hidden" id="payment-info">
+            <small>Paypal Options</small>
+        </div>
+        
+    </div>
+
+    <div class="custom-col-half">
+        <div class="box-element">
+            <a  class="custom-button outline-dark" href="{% url 'cart' %}">← Back to Cart</a>
+            <hr>
+            <h3>Order Summary</h3>
+            <hr>
+            <div class="checkout-container">
+                <div class="cart-row cart-row-checkout">
+                    <img class="row-image checkout-image" src="{% static 'images/placeholder.png' %}" alt="product">
+                    <p>Product 1</p>
+                    <p>$20.00</p>
+                    <p>x2</p>
+                </div>
+                <div class="cart-row cart-row-checkout">
+                    <img class="row-image checkout-image" src="{% static 'images/placeholder.png' %}" alt="product">
+                    <p>Product 1</p>
+                    <p>$20.00</p>
+                    <p>x2</p>
+                </div>
+            </div>
+            <h5>Items:   4</h5>
+            <h5>Total:   $80</h5>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
