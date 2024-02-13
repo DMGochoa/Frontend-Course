@@ -2,6 +2,58 @@
 {% load static %}
 {% block content %}
 
-<h3>cart</h3>
+<div class="shopping-cart">
+    <a  class="button outline-dark" href="#">← Continue Shopping</a>
+
+    <div class="cart-summary">
+        <table>
+            <tr>
+                <th><h5>Items: <strong>3</strong></h5></th>
+                <th><h5>Total:<strong> $42</strong></h5></th>
+                <th>
+                    <a  class="button success" href="{% url 'checkout' %}">Checkout</a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+        <div class="cart-row">
+            <div class="item-image"></div>
+            <div class="item-description"><strong>Item</strong></div>
+            <div class="item-price"><strong>Price</strong></div>
+            <div class="item-quantity"><strong>Quantity</strong></div>
+            <div class="item-total"><strong>Total</strong></div>
+        </div>
+        
+        <div class="cart-row">
+            <div class="item-image"><img src="{% static 'images/placeholder.png' %}" alt="Product 1"></div>
+            <div class="item-description"><p>Product 1</p></div>
+            <div class="item-price"><p>$20</p></div>
+            <div class="item-quantity">
+                <p class="quantity">2</p>
+                <div class="quantity-controls">
+                    <img class="chg-quantity" src="{% static  'images/arrow-up.png' %}" alt="Increase quantity">
+                    <img class="chg-quantity" src="{% static  'images/arrow-down.png' %}" alt="Decrease quantity">
+                </div>
+            </div>
+            <div class="item-total"><p>$40</p></div>
+        </div>
+        <div class="cart-row">
+            <div class="item-image"><img src="{% static 'images/placeholder.png' %}" alt="Product 1"></div>
+            <div class="item-description"><p>Product 2</p></div>
+            <div class="item-price"><p>$22</p></div>
+            <div class="item-quantity">
+                <p class="quantity">1</p>
+                <div class="quantity-controls">
+                    <img class="chg-quantity" src="{% static  'images/arrow-up.png' %}" alt="Increase quantity">
+                    <img class="chg-quantity" src="{% static  'images/arrow-down.png' %}" alt="Decrease quantity">
+                </div>
+            </div>
+            <div class="item-total"><p>$40</p></div>
+        </div>
+
+    </div>
+</div>
 
 {% endblock content %}
