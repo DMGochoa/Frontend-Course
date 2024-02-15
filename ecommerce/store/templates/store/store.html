@@ -10,7 +10,7 @@
     -->
     {% for product in products %}
     <div class="box-element product">
-        <img class="thumbnail" src="{% static 'images/placeholder.png' %}" alt="product">
+        <img class="thumbnail" src="{{product.image.url}}" alt="product">
         <h6 class="product-name"><strong>{{product.name}}</strong></h6>
         <hr>
         <div class="product-footer">

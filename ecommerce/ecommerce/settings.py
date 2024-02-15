@@ -122,6 +122,9 @@ STATICFILES_DIRS = [
     os.path.join(current_dir, 'static'),
 ]
 
+# Ahora tenemos que agregar a que sitio vamos a guardar las imagenes
+MEDIA_ROOT = os.path.join(current_dir, 'static' , 'media')
+MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
