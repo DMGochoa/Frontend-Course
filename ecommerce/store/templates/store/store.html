@@ -15,7 +15,10 @@
         <hr>
         <div class="product-footer">
             <div class="button-group">
-                <button class="button-add">Add to Cart</button>
+                <!-- Vamos a crear atributos custom para nuestro elemento uno que tendga el nombre del producto
+                y luego otro con la accion que vamos a realizar. Ademas vamos anadir una clase como "update-cart"
+                para anadir un event handler -->
+                <button data-product="{{product.id}}" data-action="add" class="button-add update-cart">Add to Cart</button>
                 <a class="button button-view" href="#">View</a>
             </div>
             <h4 class="price">${{product.price|floatformat:2}}</h4>
