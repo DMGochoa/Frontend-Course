@@ -36,8 +36,10 @@
                 <div class="item-quantity">
                     <p class="quantity">{{item.quantity}}</p>
                     <div class="quantity-controls">
-                        <img class="chg-quantity" src="{% static  'images/arrow-up.png' %}" alt="Increase quantity">
-                        <img class="chg-quantity" src="{% static  'images/arrow-down.png' %}" alt="Decrease quantity">
+                        <!-- Ya se hizo la logica para estos botones solo anadimos data-product
+                            data-action y la clase update-cart -->
+                        <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}" alt="Increase quantity">
+                        <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}" alt="Decrease quantity">
                     </div>
                 </div>
                 <div class="item-total"><p>${{item.get_total|floatformat:2}}</p></div>

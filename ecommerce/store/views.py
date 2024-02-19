@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+import datetime
 import json
 from .models import *
 
@@ -15,7 +16,7 @@ def store(request):
         cartItems = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total':0, 'get_cart_items':0}
+        order = {'get_cart_total':0, 'get_cart_items':0, 'shipping': False}
         cartItems = order['get_cart_items']
     products = Product.objects.all()
     context = {'products': products, 'cartItems': cartItems}
@@ -34,7 +35,7 @@ def cart(request):
     # Dado que el usuario no esta autenticado
     else:
         items = []
-        order = {'get_cart_total':0, 'get_cart_items':0}
+        order = {'get_cart_total':0, 'get_cart_items':0, 'shipping': False}
         cartItems = order['get_cart_items']
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'store/cart.html', context)
@@ -50,7 +51,7 @@ def checkout(request):
         cartItems = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total':0, 'get_cart_items':0}
+        order = {'get_cart_total':0, 'get_cart_items':0, 'shipping': False}
         cartItems = order['get_cart_items']
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'store/checkout.html', context)
@@ -93,4 +94,37 @@ def updfateItem(request):
         'Item was added',
         safe=False
     ) # Retorna un JSON
-    
+
+# Ahora vamos haces una funcion para procesar el pedido
+def processOrder(request):
+    print('Data:', request.body)
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(
+            customer=customer,
+            complete=False
+            )
+        total = float(data['form']['total'])
+        order.transaction_id = transaction_id
+
+        # Verificar que no se este intentando hacer un pedido falso
+        if abs(total - order.get_cart_total) < 0.001:
+            order.complete = True
+        order.save()
+
+        if order.shipping == True:
+            ShippingAddress.objects.create(
+                customer=customer,
+                order=order,
+                address=data['shipping']['address'],
+                city=data['shipping']['city'],
+                state=data['shipping']['state'],
+                zipcode=data['shipping']['zipcode'],
+            )
+
+    else:
+        print('User is not logged in')
+    return JsonResponse('Payment complete!', safe=False) # Retorna un JSON

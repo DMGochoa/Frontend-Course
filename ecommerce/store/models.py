@@ -38,6 +38,16 @@ class Order(models.Model):
     def __str__(self):
         return str(self.id)
 
+    # Ahora necesitamos agregar una propiedad que nos determine si hay que enviar el pedido
+    @property
+    def shipping(self):
+        shipping = False
+        orderitems = self.orderitem_set.all()
+        for i in orderitems:
+            if i.product.digital == False:
+                shipping = True
+        return shipping
+
     # Ahora vamos a anadir propiedades para obtener el total de la orden y el total de items
     @property
     def get_cart_total(self):

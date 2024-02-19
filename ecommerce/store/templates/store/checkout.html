@@ -43,6 +43,7 @@
 
         <div class="box-element hidden" id="payment-info">
             <small>Paypal Options</small>
+            <button id="make-payment" class="custom-button success">Make Payment</button>
         </div>
         
     </div>
@@ -68,5 +69,11 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var shipping = '{{order.shipping}}';
+    var total = '{{order.get_cart_total}}';
+    const storeURL = "{% url 'store' %}";
+</script>
+<script src="{% static 'js/checkout.js' %}" defer></script>
 
 {% endblock content %}
